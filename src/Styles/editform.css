@@ -1,0 +1,106 @@
+#form-component-edit,.save-component-edit{
+    width:440px;
+    height: 570px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    font-family: 'Black Ops One', cursive;
+}
+.save-component-edit{
+    width: 400px;
+    height: 490px;
+}
+
+.save-component-edit{
+    background-color: white;
+}
+#form-component-edit{
+    color: white;
+}
+/* rgba(0, 127, 255,0.9) */
+
+.select-input{
+    /* display: none; */
+    width: 70%;
+    background-color: white;
+    color: rgba(0, 127, 255,0.9);
+    font-family: 'Black Ops One', cursive;
+    font-size: larger;
+    text-align: center;
+    border-radius: 20px;
+    outline: none;
+    border: transparent;
+}
+
+.edit-form,.save-form{
+    position: relative;
+    border-radius: 20px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    
+}
+.edit-form{
+    background-color: rgba(0, 127, 255,0.9);
+    border: 10px double white;
+}
+.save-form{
+    background-color: white;
+    border: 10px double rgba(0, 127, 255,0.9);
+}
+.form-item,.save-item{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px auto;
+    margin-right: 0px;
+}
+
+.form-item > input,.save-item > .compoenet-item{
+    width: 300px;
+    height: 30px;
+    border-radius: 20px;
+    border: transparent;
+    outline: none;
+    font-family: 'Black Ops One', cursive;
+    font-size: medium;
+    text-align: center;
+} 
+
+.form-item > input{
+    color: rgba(0, 127, 255,0.9);
+}
+
+.save-component-edit,.save-item > .compoenet-item{
+    color: rgba(0, 127, 255,0.9);
+}
+
+.save-item > .compoenet-item{
+    border-radius: 0px;
+    color: rgba(0, 127, 255,0.9);
+    border-bottom:2px solid rgba(0, 127, 255,0.9) ;
+}
+
+.form-item > label ,.save-item > label{
+    width: 30%;
+} 
+
+#form-submit,#save-submit{
+    position: absolute;
+    width: 30%;
+    height: 50px;
+    border: transparent;
+    outline: none;
+    border-radius: 15px;
+    color: rgba(0, 127, 255,0.9);
+    background-color: white;
+    font-family: 'Black Ops One', cursive;
+    font-size: medium;
+    bottom: 10px;
+    left: 35%;
+}
+#save-submit{
+    color:white;
+    background-color: rgba(0, 127, 255,0.9);
+}

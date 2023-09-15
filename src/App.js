@@ -1,24 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import LayoutContainer from './components/Layout';
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+import Main from './components/Main';
+import EditForm from './components/EditForm';
+
+
 
 function App() {
   return (
+    <>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Router>
+        <Routes>
+          <Route path='/' element={<LayoutContainer/>}>
+            <Route index element={<Main/>}/>
+            <Route path='warehouse/:id' element={<EditForm/>}/>
+          </Route>
+        </Routes>
+        </Router>
     </div>
+    </>
   );
 }
 
