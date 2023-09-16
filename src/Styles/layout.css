@@ -42,12 +42,11 @@
     margin-top: 5px;
     font-family: 'Black Ops One', cursive;
     font-size: xx-small;
-}
-.main-component > .data-container > .card-item{
     border-radius: 10px;
     display: flex;
     flex-direction: column;
 }
+
 .main-component > .data-container > .card-item:nth-child(2n+1){
     background-color: rgba(0, 127, 255,0.9);
     border: 10px double white;
