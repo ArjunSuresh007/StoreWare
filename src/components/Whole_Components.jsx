@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch,useSelector } from "react-redux"
 
 export function FormComponent(params){
     let {details,children} = params
@@ -346,7 +346,7 @@ export function FilterCompoenent(){
           </label>
           <label className='label-filter'>
           <input type='radio' name='space' value='10000' id='space' className='filter-parameter' onChange={(e)=>filterPropertyHandler(e)}/>
-          {'>'} 1000
+          {'>'} 10000
           </label>
         </div>
         </details>
@@ -362,6 +362,88 @@ export function FilterCompoenent(){
       <button className='filter-apply-btn' type='submit' >Apply</button>
       </div>
      </form >
+    </>
+  )
+}
+
+export function FilterElementsComponent({filter_parameters}){
+  let initial_data = useSelector(state=>state.data)
+  let end_data = []
+
+
+  function space_function(value,state){
+    if(arguments.length === 1){
+      let filterData;
+      if (value['space'] === 10000){
+        filterData = initial_data.filter(item=>item.space_available > value['space'])
+      }
+      else{
+        filterData = initial_data.filter(item=>item.space_available < value['space'])
+      }
+      return filterData
+    }else{
+      if (value['space'] === 10000){
+        state = state.filter(item=>item.space_available > value['space'])
+      }
+      else{
+        state = state.filter(item=>item.space_available < value['space'])
+      }
+      return state
+    }
+  }
+
+  function availability(state){
+    if(arguments.length === 1){
+      state = state.filter(item=>item.is_live === true)
+            return state
+    }else{
+      let data_values = initial_data.filter(item=>item.is_live === true)
+      return data_values
+    }
+  }
+
+  function filter_items_func(value){
+    let args = Object.keys(value);
+    let filter_data = [...initial_data];
+    if(args.length === 1){
+      if (args[0] === 'space'){
+        return space_function(value)
+      }else if (args[0] === 'is_alive'){
+        return availability()
+      }else{
+        let data_values = initial_data.filter(item=>value[args[0]].includes(item[args[0]]))
+        return data_values
+      }
+    }else{
+      for(let x of  args){
+        if (x === 'space'){
+          filter_data = space_function(value,filter_data)
+        }else if (x === 'is_alive'){
+          filter_data = availability(filter_data)
+        }
+        else{
+          filter_data = filter_data.filter(item=>value[x].includes(item[x]))
+        }
+      }
+      return filter_data
+    }
+  }
+
+  function returnDataHandler(func,param){
+    end_data = func(param)
+    return end_data
+  }
+
+returnDataHandler(filter_items_func,filter_parameters)
+
+  return (
+    <>
+  {end_data  ?  end_data.length  === 0 ? <EmptyElement>No Element are Found</EmptyElement> : end_data.map(item=>(
+    <>
+    <CardComponent item={item} key={item.name}/>
+    </>
+      )): <EmptyElement>Element not available</EmptyElement>
+    }
     </>
   )
 }
