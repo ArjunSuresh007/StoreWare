@@ -9,18 +9,14 @@
 .save-component-edit{
     width: 400px;
     height: 490px;
-}
-
-.save-component-edit{
     background-color: white;
+    border-radius: 20px;
 }
 #form-component-edit{
     color: white;
 }
-/* rgba(0, 127, 255,0.9) */
 
 .select-input{
-    /* display: none; */
     width: 70%;
     background-color: white;
     color: rgba(0, 127, 255,0.9);
@@ -68,13 +64,10 @@
     text-align: center;
 } 
 
-.form-item > input{
+.form-item > input,.save-component-edit{
     color: rgba(0, 127, 255,0.9);
 }
 
-.save-component-edit,.save-item > .compoenet-item{
-    color: rgba(0, 127, 255,0.9);
-}
 
 .save-item > .compoenet-item{
     border-radius: 0px;
