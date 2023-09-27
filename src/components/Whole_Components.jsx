@@ -137,7 +137,7 @@ export function CardComponent({item}){
             </h2>
           </label>
           </h1>
-          <a href={`${'warehouse/'}${item.id}`} className='link'  rel='noopener'>&#8658;</a>
+          <a href={`${'warehouse/'}${item.id}`} className='link'  rel='noopener'>&#9998;</a>
           </div>
     </>
   )
@@ -270,11 +270,11 @@ export function FilterCompoenent(){
     <>
          <form onSubmit={(e)=>filterSubmitHandler(e)} className='filter-container' key={'form'}>
       <div className='filter-btn-list'>
-     <button type='button' className='filter-btn' onClick={()=>filterIconHandler()}>
+     <button type='button' className='filter-btn filter-icon' onClick={()=>filterIconHandler()}>
       &#8516;
       </button>
      <button type='button' className='filter-btn cross-btn' onClick={()=>filterIconHandler()}>
-     &#10011;
+     &#10006;
       </button>
 
       </div>
